@@ -3,7 +3,6 @@ package de.gelox.effects.effects;
 import de.gelox.effects.MainC;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,11 +23,15 @@ public class superthunder implements Listener, CommandExecutor {
         this.plugin = plugin;
     }
 
+    public superthunder() {
+       Bukkit.getServer().getPluginManager().registerEvents(this, MainC.getInstance());
+    }
+
 
     public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
 
         if(!(args.length == 1)) {
-            cs.sendMessage(plugin.getPrefix() + "/superthunder");
+            cs.sendMessage("/superthunder");
         }
         return true;
     }
@@ -53,7 +56,7 @@ public class superthunder implements Listener, CommandExecutor {
             location.setX( location.getX() + Math.random() * 100 * 2 - 534); // This get a Random with a MaxRange
             location.setZ( location.getZ() + Math.random() * 323 * 2 - 234);
 
-            location.setY( p.getWorld().getHighestBlockAt(location.getBlockX(), location.getBlockZ() ).getY() ); // Get the Highest Block of the Location for Save Spawn.
+            location.setY(p.getWorld().getHighestBlockAt(location.getBlockX(), location.getBlockZ()).getY()); // Get the Highest Block of the Location for Save Spawn.
 
         }
     }

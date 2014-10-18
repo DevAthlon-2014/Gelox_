@@ -1,0 +1,10 @@
+name: Effects
+version: 1.0
+author: Gelox
+
+main: de.gelox.effects.MainC
+
+commands:
+    superthunder:
+      description: Superthunder
+      aliases: [st]
